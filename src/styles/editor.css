@@ -1,0 +1,29 @@
+/* BlockNote 编辑器自定义样式 */
+
+/* 编辑器容器样式 */
+.bn-container {
+  border-radius: 8px;
+  overflow: hidden;
+  /* padding-top: 60px; */
+}
+
+/* 自定义 Block 之间的间距 */
+.bn-block-content {
+  Margin-top: 10px !important;
+}
+
+/* 自定义 Image 的样式 */
+.bn-container img {
+    border-radius: 16px !important;
+  }
+
+  /* 自定义 Heading 样式 */
+.bn-container h1,
+.bn-container h2,
+.bn-container h3,
+.bn-container h4,
+.bn-container h5,
+.bn-container h6 {
+  line-height: 1.35 !important; 
+  font-weight: 600 !important; 
+}
