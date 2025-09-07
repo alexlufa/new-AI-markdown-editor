@@ -11,21 +11,14 @@
     },
     "dependencies": {
         "@blocknote/core": "^0.37.0",
-        "@blocknote/mantine": "^0.35.0",
+        "@blocknote/mantine": "^0.37.0",
         "@blocknote/react": "^0.37.0",
-        "@blocknote/shadcn": "^0.37.0",
         "@mantine/core": "^7.0.0",
-        "@mantine/form": "^7.0.0",
         "@mantine/hooks": "^7.0.0",
         "@mantine/notifications": "^7.0.0",
-        "@radix-ui/react-slot": "^1.2.3",
         "@tabler/icons-react": "^2.40.0",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "lucide-react": "^0.542.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "tailwind-merge": "^3.3.1"
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@types/react": "^18.2.0",
