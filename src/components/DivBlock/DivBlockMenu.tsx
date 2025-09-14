@@ -1,12 +1,12 @@
 import { insertOrUpdateBlock } from "@blocknote/core";
 import { DefaultReactSuggestionItem } from "@blocknote/react";
 
-// DivBlock 的默认配置
+// DivBlock 的默认配置 - 使用正确的类型
 export const DEFAULT_DIV_BLOCK_PROPS = {
-  backgroundColor: "#000000",
-  height: "100px",
+  backgroundColor: "#000000" as const,
+  height: "200px" as const,
   textAlignment: "center" as const,
-  textColor: "#ffffff",
+  textColor: "#ffffff" as const,
 };
 
 // 创建 Div Block 的 Slash Menu 项目
@@ -15,7 +15,7 @@ export const createDivBlockMenuItem = (editor: any) => ({
   onItemClick: () =>
     insertOrUpdateBlock(editor, {
       type: "div",
-      props: DEFAULT_DIV_BLOCK_PROPS,
+      props: DEFAULT_DIV_BLOCK_PROPS as any,
     }),
   aliases: ["div", "divblock", "div-block", "黑色块", "div块"],
   group: "自定义块",
@@ -28,52 +28,4 @@ export const createDivBlockMenuItems = (
 ): DefaultReactSuggestionItem[] => [
   // 默认黑色块
   createDivBlockMenuItem(editor),
-
-  // 红色块
-  {
-    title: "插入红色 Div 块",
-    onItemClick: () =>
-      insertOrUpdateBlock(editor, {
-        type: "div",
-        props: {
-          ...DEFAULT_DIV_BLOCK_PROPS,
-          backgroundColor: "#ff0000",
-        },
-      }),
-    aliases: ["red", "红色", "red-div", "红色块"],
-    group: "自定义块",
-    subtext: "插入一个红色背景的 Div 块",
-  },
-
-  // 蓝色块
-  {
-    title: "插入蓝色 Div 块",
-    onItemClick: () =>
-      insertOrUpdateBlock(editor, {
-        type: "div",
-        props: {
-          ...DEFAULT_DIV_BLOCK_PROPS,
-          backgroundColor: "#0000ff",
-        },
-      }),
-    aliases: ["blue", "蓝色", "blue-div", "蓝色块"],
-    group: "自定义块",
-    subtext: "插入一个蓝色背景的 Div 块",
-  },
-
-  // 高块
-  {
-    title: "插入高 Div 块",
-    onItemClick: () =>
-      insertOrUpdateBlock(editor, {
-        type: "div",
-        props: {
-          ...DEFAULT_DIV_BLOCK_PROPS,
-          height: "200px",
-        },
-      }),
-    aliases: ["tall", "高", "tall-div", "高块"],
-    group: "自定义块",
-    subtext: "插入一个高度为 200px 的 Div 块",
-  },
 ];

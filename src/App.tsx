@@ -9,11 +9,13 @@ import "@blocknote/mantine/style.css";
 import {
   useCreateBlockNote,
   getDefaultReactSlashMenuItems,
-  SuggestionMenuController,
 } from "@blocknote/react";
 import "./App.css";
 import "./styles/editor.css";
 import { DivBlockSpec, createDivBlockMenuItems } from "./components/DivBlock";
+import { SlashMenuController } from "./components/SlashMenuController";
+import { CustomSideMenu } from "./components/SideMenu";
+import { SideMenuController } from "@blocknote/react";
 
 // 创建包含自定义 Div Block 的 schema
 const schema = BlockNoteSchema.create({
@@ -37,19 +39,11 @@ export default function App() {
     schema,
     initialContent: [
       {
-        type: "paragraph",
-        content: "欢迎使用 BlockNote 编辑器！",
-      },
-      {
-        type: "paragraph",
-        content:
-          "按 '/' 键打开 Slash Menu，然后输入 'div'、'红色'、'蓝色' 或 '高' 来插入不同类型的 Div Block！",
-      },
-      {
         type: "div",
         props: {
-          backgroundColor: "#000000",
-          height: "100px",
+          background:
+            "https://cdn.midjourney.com/413fb91d-f5a7-4628-8d7a-1140d160cb00/0_0.png",
+          height: "200px",
           textAlignment: "center",
           textColor: "#ffffff",
         },
@@ -58,36 +52,23 @@ export default function App() {
         type: "paragraph",
         content: "这是一个默认的黑色 Div Block。",
       },
-      {
-        type: "div",
-        props: {
-          backgroundColor: "#ff0000",
-          height: "100px",
-          textAlignment: "center",
-          textColor: "#ffffff",
-        },
-      },
-      {
-        type: "paragraph",
-        content: "这是一个红色 Div Block。",
-      },
-      {
-        type: "paragraph",
-        content: "试试在下面输入 '/' 然后选择不同的 Div Block 选项来添加更多！",
-      },
     ],
   });
 
   // 使用 React 组件渲染编辑器实例
   return (
     <div className="app-container">
-      <div className="editor-container">
-        <BlockNoteView editor={editor} slashMenu={false}>
-          <SuggestionMenuController
+      <div className="editor-container" style={{ position: "relative" }}>
+        <BlockNoteView editor={editor} slashMenu={false} sideMenu={false}>
+          <SideMenuController
+            sideMenu={(props: any) => <CustomSideMenu {...props} />}
+          />
+          <SlashMenuController
             triggerCharacter={"/"}
             getItems={async (query) =>
               filterSuggestionItems(getCustomSlashMenuItems(editor), query)
             }
+            editor={editor}
           />
         </BlockNoteView>
       </div>

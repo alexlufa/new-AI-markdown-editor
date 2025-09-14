@@ -1,0 +1,116 @@
+/* 自定义 Slash Menu 包装器样式 */
+.slash-menu-wrapper {
+  position: absolute;
+  z-index: 1000;
+  /* 位置通过内联样式设置 */
+}
+
+.slash-menu-wrapper .slash-menu {
+  pointer-events: auto;
+}
+
+/* 自定义 Slash Menu 容器样式 */
+.slash-menu {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+/* 分组标签样式 */
+.slash-menu-group-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 12px 0 6px 0;
+  padding: 0 8px;
+  position: relative;
+}
+
+.slash-menu-group-label::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+}
+
+/* 空状态样式 */
+.slash-menu-empty {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* 加载状态样式 */
+.slash-menu-loading {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  position: relative;
+}
+
+.slash-menu-loading::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* 滚动条样式 */
+.slash-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slash-menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.slash-menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.slash-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .slash-menu {
+    min-width: 250px;
+    max-width: 320px;
+    padding: 8px;
+  }
+  
+  .slash-menu-group-label {
+    font-size: 10px;
+    margin: 8px 0 4px 0;
+  }
+}
