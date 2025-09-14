@@ -16,9 +16,12 @@
         "@mantine/core": "^7.0.0",
         "@mantine/hooks": "^7.0.0",
         "@mantine/notifications": "^7.0.0",
+        "@radix-ui/react-slot": "^1.2.3",
         "@tabler/icons-react": "^2.40.0",
+        "class-variance-authority": "^0.7.1",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "tailwind-merge": "^3.3.1"
     },
     "devDependencies": {
         "@types/react": "^18.2.0",
